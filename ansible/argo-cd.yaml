@@ -1,0 +1,11 @@
+- name: Create ArgoCD and ArgoCD Application
+  hosts: K3s
+  become: yes
+  tasks:
+    - name: Run Registration Command on K3s VM
+      shell: |
+        cd Terraform
+        terraform init
+        terraform apply -auto-approve
+      delegate_to: K3s
+    
